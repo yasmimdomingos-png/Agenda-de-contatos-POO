@@ -15,7 +15,7 @@ public class Persistencia {
 			PrintWriter pw = new PrintWriter(new FileWriter("contatos.txt"));
 			for (Contato contato : contatos) {
 
-	            String linha = contato.nome + ";" + contato.celular + ";" + contato.email;
+				String linha = contato.getNome() + ";" + contato.getCelular() + ";" + contato.getEmail();
 	            pw.println(linha);
 	        }
 			pw.close();
@@ -46,11 +46,7 @@ public class Persistencia {
 	        	String[] dados = linha.split(";");
 	        	
 	        	if (dados.length == 3) {
-	        		Contato contato = new Contato();
-
-	                contato.nome = dados[0];
-	                contato.celular = dados[1];
-	                contato.email = dados[2];
+	        		Contato contato = new Contato(dados[0], dados[1], dados[2]);
 
 	                contatos.add(contato);
 	            }
