@@ -7,13 +7,19 @@ import java.util.Scanner;
 public class Principal {
 
 	public static void main(String[] args) {
+		
+		Contato contato1 = new Contato();
+
+		contato1.nome = "Yasmim Perfeita";
+		contato1.celular = "2424-2424";
+		contato1.email = "maislinda@perfeita.com";
 
 
         List<String> nomes = new ArrayList<>();
         List<String> celulares = new ArrayList<>();
         List<String> emails = new ArrayList<>();
         Persistencia.carregarContatos(nomes, celulares, emails);
-        
+
         int opcao;
         boolean continuar = true;
 
@@ -30,7 +36,7 @@ public class Principal {
                 case 2-> Agenda.listar(nomes, celulares, emails);
                 case 3-> Agenda.pesquisar(sc, nomes, celulares, emails);
                 case 4-> Agenda.atualizar(sc, nomes, celulares, emails);           	
-                case 5-> Agenda.excluir(sc, nomes, celulares, emails);          	
+                case 5-> Agenda.excluir(sc, nomes, celulares, emails);                   	
                 case 6-> {
                 	Persistencia.salvarContatos(nomes, celulares, emails);
                 	continuar = Uteis.sair();
